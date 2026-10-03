@@ -1,0 +1,1262 @@
+{
+  "oop-1": {
+    "chapterNumber": "01",
+    "title": "The Big Picture",
+    "lead": "Object-oriented programming turns a problem into cooperating objects with clear responsibilities.",
+    "objective": "Explain how OOP differs from procedural decomposition and identify the four core principles.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "Procedural programs organize behavior into functions. OOP additionally packages state and behavior into objects, making it easier to model a domain and protect its rules as a program grows."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Abstraction",
+        "text": "Expose the important idea while hiding distracting detail."
+      },
+      {
+        "number": "02",
+        "title": "Encapsulation",
+        "text": "Keep state and the operations that protect it together."
+      },
+      {
+        "number": "03",
+        "title": "Polymorphism",
+        "text": "Use one interface for multiple compatible implementations."
+      }
+    ],
+    "note": "When designing a class, name the responsibility it owns before choosing its fields."
+  },
+  "oop": {
+    "chapterNumber": "01",
+    "title": "The Big Picture",
+    "lead": "Object-oriented programming turns a problem into cooperating objects with clear responsibilities.",
+    "objective": "Explain how OOP differs from procedural decomposition and identify the four core principles.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "Procedural programs organize behavior into functions. OOP additionally packages state and behavior into objects, making it easier to model a domain and protect its rules as a program grows."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Abstraction",
+        "text": "Expose the important idea while hiding distracting detail."
+      },
+      {
+        "number": "02",
+        "title": "Encapsulation",
+        "text": "Keep state and the operations that protect it together."
+      },
+      {
+        "number": "03",
+        "title": "Polymorphism",
+        "text": "Use one interface for multiple compatible implementations."
+      }
+    ],
+    "note": "When designing a class, name the responsibility it owns before choosing its fields."
+  },
+  "oop-2": {
+    "chapterNumber": "02",
+    "title": "Structure & Classes",
+    "lead": "Structures and classes give related data a shape that the rest of a program can understand.",
+    "objective": "Create a simple class, distinguish a class from an object, and choose an appropriate member visibility.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A class is a blueprint; an object is a concrete instance of that blueprint. C++ structures default to public access, while classes default to private access, but both can contain fields, methods, and constructors.",
+        "code": {
+          "file": "Course.cpp",
+          "lines": "class Course {\n  string title;\npublic:\n  void rename(string value) { title = value; }\n};"
+        }
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Blueprint",
+        "text": "A class defines the possible state and behavior."
+      },
+      {
+        "number": "02",
+        "title": "Instance",
+        "text": "An object occupies memory and has its own state."
+      },
+      {
+        "number": "03",
+        "title": "Visibility",
+        "text": "Access control communicates which operations are safe to call."
+      }
+    ],
+    "note": "Keep public methods small and make invalid state difficult to represent."
+  },
+  "oop-3": {
+    "chapterNumber": "03",
+    "title": "Objects & Classes",
+    "lead": "Good objects protect their own rules. Constructors create valid objects and encapsulation keeps their internal state intentional.",
+    "objective": "Explain constructors, destructors, overloading, and the role of encapsulation in a class design.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A constructor is the first conversation between a class and the object it creates. It gives the object a known starting point instead of leaving its state to chance. A destructor releases owned resources when the object leaves its lifetime.",
+        "code": {
+          "file": "Student.cpp",
+          "lines": "class Student {\n  string name;\n  int progress;\npublic:\n  Student(string value) : name(value), progress(0) {}\n};"
+        }
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "A boundary",
+        "text": "Private state creates a boundary around the rules an object must protect."
+      },
+      {
+        "number": "02",
+        "title": "A promise",
+        "text": "A constructor promises that a new object begins in a usable state."
+      },
+      {
+        "number": "03",
+        "title": "A reason to change",
+        "text": "Clear responsibilities make future changes smaller and safer."
+      }
+    ],
+    "note": "Prefer member initializer lists in C++ and make ownership explicit."
+  },
+  "oop-4": {
+    "chapterNumber": "04",
+    "title": "Constructors & Class State",
+    "lead": "Class state has a lifetime, and constructors let you make that lifetime predictable.",
+    "objective": "Use default, parameterized, const, and static members safely.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A default constructor supplies sensible defaults. Static members belong to the class rather than one object, while const members cannot change after initialization and therefore must be initialized in the constructor."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Defaults",
+        "text": "Useful defaults reduce invalid partially initialized objects."
+      },
+      {
+        "number": "02",
+        "title": "Lifetime",
+        "text": "Static storage lasts independently of any single instance."
+      },
+      {
+        "number": "03",
+        "title": "Const correctness",
+        "text": "Const communicates and enforces an operation that does not mutate state."
+      }
+    ],
+    "note": "Document whether a class owns a value, borrows it, or shares it."
+  },
+  "oop-5": {
+    "chapterNumber": "05",
+    "title": "Functions & Overloading",
+    "lead": "Functions become easier to use when their interfaces express intent without unnecessary repetition.",
+    "objective": "Apply overloading, inline functions, default arguments, and storage-class ideas.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "Overloaded functions share a name but differ in parameter lists. Default arguments make common calls concise, while inline is a request to the compiler and not a guarantee about generated machine code."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Signature",
+        "text": "Parameters determine which overload is selected."
+      },
+      {
+        "number": "02",
+        "title": "Defaults",
+        "text": "Use defaults for stable optional behavior, not ambiguous APIs."
+      },
+      {
+        "number": "03",
+        "title": "Scope",
+        "text": "Storage and visibility determine where a name can be used."
+      }
+    ],
+    "note": "Avoid overload sets that make a call difficult for a reader to resolve."
+  },
+  "oop-6": {
+    "chapterNumber": "06",
+    "title": "Composition & Aggregation",
+    "lead": "Composition models objects that are built from other objects, while aggregation models a looser relationship.",
+    "objective": "Choose between composition and aggregation when modeling a real system.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A Car has an Engine as a compositional part when the engine lifetime belongs to the car. A university aggregates Student objects because students exist independently. The relationship should reflect ownership and lifetime, not just vocabulary."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Has-a",
+        "text": "Composition describes a strong owned part relationship."
+      },
+      {
+        "number": "02",
+        "title": "Uses-a",
+        "text": "Aggregation or association can refer to an independent object."
+      },
+      {
+        "number": "03",
+        "title": "Lifetime",
+        "text": "Ownership decides who creates and destroys a resource."
+      }
+    ],
+    "note": "Draw ownership arrows before writing constructors or destructors."
+  },
+  "oop-7": {
+    "chapterNumber": "07",
+    "title": "Inheritance",
+    "lead": "Inheritance expresses an is-a relationship and lets a derived class specialize a base interface.",
+    "objective": "Build a hierarchy with correct access control and explain abstract classes.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A derived class reuses a base class interface, but inheritance should represent substitutability rather than code sharing alone. Protected members are available to derived classes; private members remain behind the base interface."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Substitutability",
+        "text": "A derived object should work wherever its base is expected."
+      },
+      {
+        "number": "02",
+        "title": "Access",
+        "text": "Public, protected, and private inheritance change the exposed interface."
+      },
+      {
+        "number": "03",
+        "title": "Abstractness",
+        "text": "Pure virtual functions describe behavior without an implementation."
+      }
+    ],
+    "note": "Favor composition when the relationship is not genuinely is-a."
+  },
+  "oop-8": {
+    "chapterNumber": "08",
+    "title": "Multiple Inheritance",
+    "lead": "Multiple inheritance combines more than one base interface, but it also creates ambiguity that must be designed away.",
+    "objective": "Resolve ambiguity and compare multiple inheritance with composition.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "If two bases provide a member with the same name, a derived class must qualify the call or override the behavior. Virtual base classes solve the diamond problem by sharing one common base subobject."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Ambiguity",
+        "text": "Qualified names make the intended base explicit."
+      },
+      {
+        "number": "02",
+        "title": "Diamond",
+        "text": "Repeated base state can be shared through virtual inheritance."
+      },
+      {
+        "number": "03",
+        "title": "Design cost",
+        "text": "Composition often gives the same reuse with simpler ownership."
+      }
+    ],
+    "note": "Use multiple inheritance primarily for orthogonal interfaces, not a tangled implementation hierarchy."
+  },
+  "oop-9": {
+    "chapterNumber": "09",
+    "title": "Operator Overloading",
+    "lead": "Operator overloading can make value-like types readable when the meaning of an operator stays intuitive.",
+    "objective": "Overload unary and binary operators and avoid surprising conversions.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "An overloaded operator is still a function with a clear contract. A Vector can define addition because vector addition has a natural meaning; a domain type should not overload an operator merely to save a few characters."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Symmetry",
+        "text": "Binary operators should usually treat both operands consistently."
+      },
+      {
+        "number": "02",
+        "title": "Value semantics",
+        "text": "Return new values when the operation does not mutate either operand."
+      },
+      {
+        "number": "03",
+        "title": "Conversions",
+        "text": "Explicit conversions prevent accidental and lossy behavior."
+      }
+    ],
+    "note": "Keep overloaded operators unsurprising for someone who already knows the language."
+  },
+  "oop-10": {
+    "chapterNumber": "10",
+    "title": "Pointers",
+    "lead": "Pointers expose addresses and make dynamic data structures possible, but they require disciplined ownership.",
+    "objective": "Use pointer operators, dynamic allocation, and safe cleanup.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "The address-of operator obtains an address and dereferencing reads or writes the pointed-to object. Memory allocated with new must be released with delete, and a pointer should never outlive the object it refers to.",
+        "code": {
+          "file": "Box.cpp",
+          "lines": "int* value = new int(42);\ncout << *value;\ndelete value;\nvalue = nullptr;"
+        }
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Indirection",
+        "text": "A pointer stores where a value lives, not the value itself."
+      },
+      {
+        "number": "02",
+        "title": "Ownership",
+        "text": "The owner is responsible for releasing dynamic memory."
+      },
+      {
+        "number": "03",
+        "title": "Safety",
+        "text": "Null and dangling pointers are invalid states to prevent."
+      }
+    ],
+    "note": "Prefer RAII and smart pointers in modern C++ when a raw pointer is not required."
+  },
+  "oop-11": {
+    "chapterNumber": "11",
+    "title": "Virtual Functions",
+    "lead": "Virtual functions defer method selection until runtime so a base reference can call derived behavior.",
+    "objective": "Explain late binding, virtual destructors, and abstract interfaces.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "With a virtual function, the runtime chooses the override based on the actual object type. A polymorphic base should usually have a virtual destructor so deleting through a base pointer destroys the complete derived object."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Late binding",
+        "text": "The runtime type determines the override that runs."
+      },
+      {
+        "number": "02",
+        "title": "Interface",
+        "text": "An abstract base defines a contract for derived classes."
+      },
+      {
+        "number": "03",
+        "title": "Cleanup",
+        "text": "Virtual destruction preserves the derived cleanup path."
+      }
+    ],
+    "note": "Use override on derived methods so the compiler checks the intended relationship."
+  },
+  "oop-12": {
+    "chapterNumber": "12",
+    "title": "Polymorphism & Friends",
+    "lead": "Friends and static members are specialized tools for collaboration between objects and the class itself.",
+    "objective": "Use friend functions, friend classes, and static methods with deliberate boundaries.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A friend can access private members without becoming a member, which is useful for symmetric operators or tightly coupled helpers. Static functions have no this pointer and can operate only on static state or explicit arguments."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Narrow privilege",
+        "text": "Grant friendship to the smallest helper that needs it."
+      },
+      {
+        "number": "02",
+        "title": "Class state",
+        "text": "Static data represents shared state and needs one definition."
+      },
+      {
+        "number": "03",
+        "title": "Polymorphism",
+        "text": "Dynamic dispatch lets clients depend on behavior rather than concrete classes."
+      }
+    ],
+    "note": "Friendship is not inherited or transitive, so treat it as a precise design choice."
+  },
+  "oop-13": {
+    "chapterNumber": "13",
+    "title": "Streams & Files",
+    "lead": "Streams provide a uniform interface for console, string, and file input and output.",
+    "objective": "Read and write files and explain stream state and file pointers.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "An fstream combines input and output, while ifstream and ofstream communicate intent. A failed extraction sets a stream state flag, so loops should test the stream rather than assume every read succeeded.",
+        "code": {
+          "file": "notes.cpp",
+          "lines": "ofstream out(\"notes.txt\");\nif (out) out << \"Keep practicing\\n\";"
+        }
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Abstraction",
+        "text": "The stream interface hides device-specific details."
+      },
+      {
+        "number": "02",
+        "title": "State flags",
+        "text": "eof, fail, and bad distinguish common I/O failures."
+      },
+      {
+        "number": "03",
+        "title": "Position",
+        "text": "Seek and tell operations control the file pointer."
+      }
+    ],
+    "note": "Always check that a file opened successfully before reading or writing."
+  },
+  "oop-14": {
+    "chapterNumber": "14",
+    "title": "Error Handling & File I/O",
+    "lead": "Robust file programs treat I/O as fallible and keep persistence code separate from domain logic.",
+    "objective": "Handle file errors and organize file operations as class responsibilities.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "Opening, reading, parsing, and writing can each fail. Report the failure with useful context and leave the object in a predictable state instead of silently accepting partial data."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Validation",
+        "text": "Check paths, formats, and stream state at the boundary."
+      },
+      {
+        "number": "02",
+        "title": "Recovery",
+        "text": "A caller should know whether an operation succeeded."
+      },
+      {
+        "number": "03",
+        "title": "Separation",
+        "text": "Persistence methods should not leak file details into every client."
+      }
+    ],
+    "note": "Test missing files, malformed records, and interrupted writes explicitly."
+  },
+  "oop-15": {
+    "chapterNumber": "15",
+    "title": "Multiple Programs",
+    "lead": "Larger programs need boundaries between declarations, implementations, and build artifacts.",
+    "objective": "Organize headers, source files, directories, and project units.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "Header files declare interfaces and source files define behavior. Include guards or pragma once prevent duplicate declarations, while a project build links separate translation units into one executable."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Interface",
+        "text": "A header communicates what clients may use."
+      },
+      {
+        "number": "02",
+        "title": "Implementation",
+        "text": "A source file hides how the interface works."
+      },
+      {
+        "number": "03",
+        "title": "Build",
+        "text": "Compilation and linking are distinct stages."
+      }
+    ],
+    "note": "Keep a header focused and include only the dependencies it truly needs."
+  },
+  "oop-16": {
+    "chapterNumber": "16",
+    "title": "Templates & Exceptions",
+    "lead": "Templates express algorithms and containers once, while exceptions make failure paths explicit.",
+    "objective": "Write function and class templates and handle exceptions without hiding failures.",
+    "readTime": "22 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A template is instantiated for a concrete type when used. Exceptions transfer control to a handler, so code should throw meaningful errors, catch at an appropriate boundary, and clean up through RAII."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Genericity",
+        "text": "Templates let one algorithm work across compatible types."
+      },
+      {
+        "number": "02",
+        "title": "Contract",
+        "text": "Exceptions communicate that a normal result could not be produced."
+      },
+      {
+        "number": "03",
+        "title": "Cleanup",
+        "text": "Stack unwinding should leave owned resources safely released."
+      }
+    ],
+    "note": "Catch by const reference and avoid using exceptions for ordinary branching."
+  },
+  "dsa-1": {
+    "chapterNumber": "01",
+    "title": "Foundations & Arrays",
+    "lead": "Arrays make indexed data compact and fast to access, which makes them a foundation for many structures.",
+    "objective": "Choose arrays for suitable workloads and analyze their basic operations.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "An array stores elements contiguously. Index access is O(1), but inserting in the middle shifts later values and costs O(n). Fixed arrays have stable storage; dynamic arrays resize when capacity is exhausted."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Indexing",
+        "text": "Address arithmetic makes direct access constant time."
+      },
+      {
+        "number": "02",
+        "title": "Shifting",
+        "text": "Middle insertion and deletion move a suffix of elements."
+      },
+      {
+        "number": "03",
+        "title": "Capacity",
+        "text": "Dynamic arrays trade occasional resizing for flexible length."
+      }
+    ],
+    "note": "Start an analysis with the operation the workload performs most often."
+  },
+  "dsa": {
+    "chapterNumber": "01",
+    "title": "Foundations & Arrays",
+    "lead": "Arrays make indexed data compact and fast to access, which makes them a foundation for many structures.",
+    "objective": "Choose arrays for suitable workloads and analyze their basic operations.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "An array stores elements contiguously. Index access is O(1), but inserting in the middle shifts later values and costs O(n). Fixed arrays have stable storage; dynamic arrays resize when capacity is exhausted."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Indexing",
+        "text": "Address arithmetic makes direct access constant time."
+      },
+      {
+        "number": "02",
+        "title": "Shifting",
+        "text": "Middle insertion and deletion move a suffix of elements."
+      },
+      {
+        "number": "03",
+        "title": "Capacity",
+        "text": "Dynamic arrays trade occasional resizing for flexible length."
+      }
+    ],
+    "note": "Start an analysis with the operation the workload performs most often."
+  },
+  "dsa-2": {
+    "chapterNumber": "02",
+    "title": "Linked Lists",
+    "lead": "Linked lists trade direct indexing for flexible node connections.",
+    "objective": "Traverse and modify singly and circular linked lists.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A node stores data and a pointer to the next node. Inserting after a known node is O(1), while finding that node is O(n). A circular list connects its tail back to its head and needs careful stopping conditions."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Node",
+        "text": "Data and linkage form one independently allocated unit."
+      },
+      {
+        "number": "02",
+        "title": "Traversal",
+        "text": "Follow links until null or the starting node is reached."
+      },
+      {
+        "number": "03",
+        "title": "Trade-off",
+        "text": "Fast local edits come at the cost of cache locality and indexing."
+      }
+    ],
+    "note": "Update links before losing the only pointer to the rest of a list."
+  },
+  "dsa-3": {
+    "chapterNumber": "03",
+    "title": "Doubly Linked Lists",
+    "lead": "A doubly linked list gives every node two pointers, one forward and one back.",
+    "objective": "Implement a doubly linked list and explain when it is preferable to a singly linked list.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "The previous pointer enables backward traversal and deletion at a known tail node without scanning from the head. The extra pointer costs memory and every mutation must preserve links in both directions."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Bidirectional",
+        "text": "Walk the list in either direction without starting over."
+      },
+      {
+        "number": "02",
+        "title": "Trade-off",
+        "text": "Extra memory buys simpler tail operations."
+      },
+      {
+        "number": "03",
+        "title": "Symmetry",
+        "text": "Head and tail updates follow mirror-image logic."
+      }
+    ],
+    "note": "After every mutation, verify head.prev and tail.next are null."
+  },
+  "dsa-4": {
+    "chapterNumber": "04",
+    "title": "Stacks & Queues",
+    "lead": "Stacks and queues constrain access order so algorithms can model real workflows.",
+    "objective": "Implement push, pop, enqueue, dequeue, and recognize their applications.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A stack is last-in-first-out and supports top access. A queue is first-in-first-out and supports front removal and rear insertion. Array implementations need either shifting or a moving circular index."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "LIFO",
+        "text": "Stacks model undo, parsing, and call frames."
+      },
+      {
+        "number": "02",
+        "title": "FIFO",
+        "text": "Queues model scheduling and breadth-first processing."
+      },
+      {
+        "number": "03",
+        "title": "Amortization",
+        "text": "Circular indexing avoids repeated full-array shifts."
+      }
+    ],
+    "note": "Define empty and full behavior before implementing an operation."
+  },
+  "dsa-5": {
+    "chapterNumber": "05",
+    "title": "Queues & Deques",
+    "lead": "Queues, deques, and circular queues give a program controlled access at one or both ends.",
+    "objective": "Compare queue variants and implement their boundary conditions.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A deque supports insertion and removal at both ends. A circular queue reuses freed slots by wrapping indices, usually tracking size or distinguishing full from empty with one reserved slot."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Deque",
+        "text": "Both ends are active operation points."
+      },
+      {
+        "number": "02",
+        "title": "Wraparound",
+        "text": "Modulo arithmetic reuses a fixed buffer."
+      },
+      {
+        "number": "03",
+        "title": "Invariant",
+        "text": "Front, rear, and size must agree after every operation."
+      }
+    ],
+    "note": "Write down the empty, one-item, and full cases as tests."
+  },
+  "dsa-6": {
+    "chapterNumber": "06",
+    "title": "Recursion",
+    "lead": "Recursion solves a problem by reducing it to smaller instances of the same problem.",
+    "objective": "Identify base and recursive cases and estimate recursion cost.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "Every recursive function needs a base case that stops progress and a recursive case that moves toward it. The call stack stores pending work, so deep recursion can consume O(n) space or overflow."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Base case",
+        "text": "The smallest solved input ends the recursion."
+      },
+      {
+        "number": "02",
+        "title": "Reduction",
+        "text": "Each call should move closer to the base case."
+      },
+      {
+        "number": "03",
+        "title": "Stack",
+        "text": "Pending calls preserve the context needed on return."
+      }
+    ],
+    "note": "Trace two or three calls by hand before optimizing a recursive algorithm."
+  },
+  "dsa-7": {
+    "chapterNumber": "07",
+    "title": "Trees & Binary Trees",
+    "lead": "Trees represent hierarchical data and support traversals that reveal different views of the same structure.",
+    "objective": "Represent binary trees and perform depth-first and breadth-first traversals.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A binary tree gives each node at most two children. Preorder visits root-left-right, inorder left-root-right, and postorder left-right-root; level order uses a queue to visit by depth."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Hierarchy",
+        "text": "Parent-child links encode nested relationships."
+      },
+      {
+        "number": "02",
+        "title": "Traversal",
+        "text": "The visit order answers different application questions."
+      },
+      {
+        "number": "03",
+        "title": "Height",
+        "text": "The longest root-to-leaf path influences recursive cost."
+      }
+    ],
+    "note": "Use a small tree and write the output of each traversal before coding it."
+  },
+  "dsa-8": {
+    "chapterNumber": "08",
+    "title": "BSTs & AVL Trees",
+    "lead": "Search trees keep ordering information, while AVL trees actively maintain balance.",
+    "objective": "Insert and search in BSTs and explain AVL rotations.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "In a BST, smaller values go left and larger values go right. Its average search is O(log n), but sorted insertion can make it a chain. AVL rotations restore a bounded balance factor after updates."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Ordering",
+        "text": "The invariant makes guided search possible."
+      },
+      {
+        "number": "02",
+        "title": "Worst case",
+        "text": "An unbalanced BST can degrade to O(n)."
+      },
+      {
+        "number": "03",
+        "title": "Rotation",
+        "text": "Local pointer changes restore height without losing order."
+      }
+    ],
+    "note": "Check the ordering invariant after each rotation, not just the height."
+  },
+  "dsa-9": {
+    "chapterNumber": "09",
+    "title": "Graphs",
+    "lead": "Graphs model relationships that are not limited to a hierarchy.",
+    "objective": "Represent graphs and traverse them with BFS and DFS.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "An adjacency matrix gives O(1) edge lookup but uses O(V^2) space. An adjacency list uses O(V + E) space and is efficient for sparse graphs. BFS uses a queue; DFS uses recursion or an explicit stack."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Vertices",
+        "text": "Entities become nodes in the relationship model."
+      },
+      {
+        "number": "02",
+        "title": "Edges",
+        "text": "Connections may be directed, undirected, weighted, or unweighted."
+      },
+      {
+        "number": "03",
+        "title": "Visited set",
+        "text": "Marking nodes prevents cycles from causing repeated work."
+      }
+    ],
+    "note": "Choose representation from graph density and the query you need to answer."
+  },
+  "dsa-10": {
+    "chapterNumber": "10",
+    "title": "Heaps",
+    "lead": "Heaps keep the highest-priority element at the root while using a compact array representation.",
+    "objective": "Maintain a heap and explain heap sort and priority queues.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "In a max heap each parent is at least as large as its children. Parent and child indices map directly in an array, and sift-up or sift-down restores the invariant in O(log n)."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Priority",
+        "text": "The root gives immediate access to the next item."
+      },
+      {
+        "number": "02",
+        "title": "Invariant",
+        "text": "Every parent-child pair obeys the heap ordering."
+      },
+      {
+        "number": "03",
+        "title": "Heapify",
+        "text": "Bottom-up construction runs in O(n), not O(n log n)."
+      }
+    ],
+    "note": "Do not confuse a heap with a fully sorted array; only the root is globally extreme."
+  },
+  "dsa-11": {
+    "chapterNumber": "11",
+    "title": "Hashing",
+    "lead": "Hashing turns a key into an array position for near-constant average lookup.",
+    "objective": "Explain hash functions, collisions, and load factor.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A hash function maps keys to buckets. Collisions are unavoidable, so chaining stores a bucket collection while open addressing probes for another slot. As load factor rises, performance falls and resizing becomes useful."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Uniformity",
+        "text": "A good hash spreads keys across buckets."
+      },
+      {
+        "number": "02",
+        "title": "Collision",
+        "text": "Different keys can map to the same position."
+      },
+      {
+        "number": "03",
+        "title": "Load factor",
+        "text": "Occupancy predicts when a table should resize."
+      }
+    ],
+    "note": "A hash table is fast on average, not a guarantee of O(1) in every case."
+  },
+  "dsa-12": {
+    "chapterNumber": "12",
+    "title": "Algorithms & Complexity",
+    "lead": "Algorithm analysis lets you predict how a solution behaves as its input grows.",
+    "objective": "Use Big O, Omega, and Theta to compare time and space costs.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "Big O describes an upper growth bound, Omega a lower bound, and Theta a tight bound. Ignore constants for growth comparisons, but keep input assumptions and dominant terms explicit."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Growth",
+        "text": "Complexity describes scaling, not a stopwatch result."
+      },
+      {
+        "number": "02",
+        "title": "Dominant term",
+        "text": "The fastest-growing term controls large inputs."
+      },
+      {
+        "number": "03",
+        "title": "Space",
+        "text": "Auxiliary memory can matter as much as running time."
+      }
+    ],
+    "note": "State what n represents before writing a complexity claim."
+  },
+  "dsa-13": {
+    "chapterNumber": "13",
+    "title": "Sorting I",
+    "lead": "Simple comparison sorts are valuable because their invariants are easy to see and verify.",
+    "objective": "Compare selection, insertion, and bubble sort on time, space, and adaptiveness.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "Selection sort repeatedly chooses the smallest remaining value. Insertion sort grows a sorted prefix and performs well on nearly sorted input. Bubble sort swaps adjacent inversions and can stop early when a pass makes no swaps."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Invariant",
+        "text": "A sorted prefix or suffix makes progress visible."
+      },
+      {
+        "number": "02",
+        "title": "Adaptiveness",
+        "text": "Some algorithms benefit from nearly sorted data."
+      },
+      {
+        "number": "03",
+        "title": "Stability",
+        "text": "Equal elements can retain their original order."
+      }
+    ],
+    "note": "Use the same input examples to compare each algorithm fairly."
+  },
+  "dsa-14": {
+    "chapterNumber": "14",
+    "title": "Sorting II",
+    "lead": "Sorting choices should follow the data shape and the guarantees an application needs.",
+    "objective": "Practice sorting traces and select an algorithm from its behavior.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "Selection, insertion, and bubble sort all take O(n^2) worst-case time, but their constants, stability, and best-case behavior differ. A trace exposes where comparisons and moves are spent."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Comparisons",
+        "text": "Count comparisons separately from assignments."
+      },
+      {
+        "number": "02",
+        "title": "Moves",
+        "text": "Insertion shifts values; selection minimizes swaps."
+      },
+      {
+        "number": "03",
+        "title": "Stability",
+        "text": "Stable order can preserve meaning attached to equal keys."
+      }
+    ],
+    "note": "Measure a small trace, then confirm the asymptotic result."
+  },
+  "dsa-15": {
+    "chapterNumber": "15",
+    "title": "Divide & Conquer",
+    "lead": "Divide and conquer breaks a large problem into smaller independent problems and combines their results.",
+    "objective": "Explain merge sort and quick sort partitioning and compare their costs.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "Merge sort divides until subarrays have one item, then merges in order for O(n log n) time and O(n) auxiliary space. Quick sort partitions around a pivot and is fast on average, but poor pivots can produce O(n^2) time."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Divide",
+        "text": "Smaller subproblems make each local decision manageable."
+      },
+      {
+        "number": "02",
+        "title": "Combine",
+        "text": "The merge or partition step restores global structure."
+      },
+      {
+        "number": "03",
+        "title": "Pivot",
+        "text": "Quick sort performance depends on pivot choices."
+      }
+    ],
+    "note": "Write the recurrence or partition sizes before asserting complexity."
+  },
+  "dsa-16": {
+    "chapterNumber": "16",
+    "title": "Greedy Algorithms",
+    "lead": "Greedy algorithms make the best local choice and rely on proof that local choices lead to a global optimum.",
+    "objective": "Recognize greedy structure and distinguish it from dynamic programming.",
+    "readTime": "18 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A greedy solution needs a greedy-choice property and optimal substructure. Activity selection and minimum spanning tree algorithms work because a local safe choice can be proven. Greedy is not automatically correct for every optimization problem."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Local choice",
+        "text": "Choose the best immediate option under a stated rule."
+      },
+      {
+        "number": "02",
+        "title": "Proof",
+        "text": "Exchange arguments or cut properties justify correctness."
+      },
+      {
+        "number": "03",
+        "title": "Counterexample",
+        "text": "A single valid counterexample can disprove a greedy rule."
+      }
+    ],
+    "note": "Test a greedy idea against a small adversarial input before implementing it."
+  },
+  "dbms-1": {
+    "chapterNumber": "01",
+    "title": "Database Foundations",
+    "lead": "A database gives persistent information structure, durability, and controlled access beyond a program run.",
+    "objective": "Distinguish data, databases, DBMS software, and common database models.",
+    "readTime": "23 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A DBMS stores and retrieves data while providing constraints, transactions, security, and concurrent access. Relational systems organize data into tables, while document and graph models emphasize different relationships."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Persistence",
+        "text": "Data survives beyond the process that created it."
+      },
+      {
+        "number": "02",
+        "title": "Schema",
+        "text": "A schema describes permitted structure and relationships."
+      },
+      {
+        "number": "03",
+        "title": "DBMS",
+        "text": "The system enforces storage, query, and integrity behavior."
+      }
+    ],
+    "note": "Ask which guarantees the application needs before choosing a database model."
+  },
+  "dbms": {
+    "chapterNumber": "01",
+    "title": "Database Foundations",
+    "lead": "A database gives persistent information structure, durability, and controlled access beyond a program run.",
+    "objective": "Distinguish data, databases, DBMS software, and common database models.",
+    "readTime": "23 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A DBMS stores and retrieves data while providing constraints, transactions, security, and concurrent access. Relational systems organize data into tables, while document and graph models emphasize different relationships."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Persistence",
+        "text": "Data survives beyond the process that created it."
+      },
+      {
+        "number": "02",
+        "title": "Schema",
+        "text": "A schema describes permitted structure and relationships."
+      },
+      {
+        "number": "03",
+        "title": "DBMS",
+        "text": "The system enforces storage, query, and integrity behavior."
+      }
+    ],
+    "note": "Ask which guarantees the application needs before choosing a database model."
+  },
+  "dbms-2": {
+    "chapterNumber": "02",
+    "title": "Relational Models",
+    "lead": "Tables, keys, and relationships form the backbone of every relational database.",
+    "objective": "Identify primary keys, foreign keys, and relationship types.",
+    "readTime": "23 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "A relational model organizes data into tables where each row is a tuple and each column an attribute. Primary keys identify rows; foreign keys link rows across tables and enforce referential integrity.",
+        "code": {
+          "file": "schema.sql",
+          "lines": "CREATE TABLE students (\n  id SERIAL PRIMARY KEY,\n  email TEXT UNIQUE\n);\nCREATE TABLE enrollments (\n  student_id INT REFERENCES students(id)\n);"
+        }
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Identity",
+        "text": "A primary key gives every row a unique handle."
+      },
+      {
+        "number": "02",
+        "title": "Connection",
+        "text": "A foreign key encodes a relationship to another table."
+      },
+      {
+        "number": "03",
+        "title": "Integrity",
+        "text": "Constraints prevent orphaned or ambiguous references."
+      }
+    ],
+    "note": "Draw the entity-relationship diagram for a schema before writing queries."
+  },
+  "dbms-3": {
+    "chapterNumber": "03",
+    "title": "SQL Essentials",
+    "lead": "SQL turns a question about data into a precise, composable query.",
+    "objective": "Write SELECT, WHERE, ORDER BY, GROUP BY, and JOIN queries.",
+    "readTime": "23 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "SELECT chooses columns, WHERE filters rows before grouping, and ORDER BY controls presentation. JOIN combines related rows; GROUP BY forms groups for aggregate functions such as COUNT and AVG."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Selection",
+        "text": "Filter early when it reduces work and clarifies intent."
+      },
+      {
+        "number": "02",
+        "title": "Join",
+        "text": "Match rows through a relationship instead of duplicating data."
+      },
+      {
+        "number": "03",
+        "title": "Aggregation",
+        "text": "Summarize groups with a defined measure."
+      }
+    ],
+    "note": "Build a query one clause at a time and inspect its intermediate result."
+  },
+  "dbms-4": {
+    "chapterNumber": "04",
+    "title": "Normalization",
+    "lead": "Normalization reduces duplication so updates remain consistent and predictable.",
+    "objective": "Explain 1NF, 2NF, and 3NF and identify update anomalies.",
+    "readTime": "23 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "First normal form keeps values atomic. Second normal form removes partial dependency on part of a composite key. Third normal form removes transitive dependency on a non-key attribute. Normalization separates facts into tables linked by keys."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "Redundancy",
+        "text": "Repeated facts create more places for inconsistent updates."
+      },
+      {
+        "number": "02",
+        "title": "Dependency",
+        "text": "A functional dependency says which attributes determine others."
+      },
+      {
+        "number": "03",
+        "title": "Decomposition",
+        "text": "Split tables while preserving useful relationships and information."
+      }
+    ],
+    "note": "Normalize to protect correctness, then denormalize only for a measured reason."
+  },
+  "dbms-5": {
+    "chapterNumber": "05",
+    "title": "Transactions & Security",
+    "lead": "Transactions and security protect data when many users and failures meet the same system.",
+    "objective": "Explain ACID, isolation, commits, rollbacks, and basic database security.",
+    "readTime": "23 min read",
+    "sections": [
+      {
+        "heading": "Core idea",
+        "body": "Atomicity makes a transaction all-or-nothing, consistency preserves constraints, isolation controls concurrent visibility, and durability preserves committed data. Parameterized queries and least-privilege roles reduce security risk."
+      }
+    ],
+    "concepts": [
+      {
+        "number": "01",
+        "title": "ACID",
+        "text": "Four guarantees describe reliable transaction behavior."
+      },
+      {
+        "number": "02",
+        "title": "Isolation",
+        "text": "Concurrent work should not expose unsafe intermediate state."
+      },
+      {
+        "number": "03",
+        "title": "Least privilege",
+        "text": "Users and services should receive only required access."
+      }
+    ],
+    "note": "Pair every multi-step write with a clear commit or rollback strategy."
+  }
+}

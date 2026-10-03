@@ -18,6 +18,10 @@
   <a href="./"><img src="https://img.shields.io/badge/Repo-view_source-0f1b30?style=flat-square&logoColor=38bdf8" /></a>
   <a href="https://github.com/thedevamina"><img src="https://img.shields.io/badge/@thedevamina-0f1b30?style=flat-square&logo=github&logoColor=38bdf8" /></a>
 </p>
+<h3>
+  <a href="https://github.com/thedevamina/code-quest">🎓 Code Quest</a>
+  <a href="https://thedevamina-code-quest.vercel.app">🔗 Live Demo</a>
+</h3>
 
 <br/>
 
